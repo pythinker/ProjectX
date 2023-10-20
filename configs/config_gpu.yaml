@@ -1,0 +1,38 @@
+dir_setting:
+  data_dir: /home/mos/workshop/ProjectX/data
+  checkpoint_dir: checkpoints
+
+data:
+  train_dataset_path: train_data.pickle
+  valid_dataset_path: valid_data.pickle
+
+logging:
+  tb_log_dir: tb_log_dir
+  log_every_n_steps: 1
+  check_val_every_n_epoch: 1
+  ckpt_path: None
+
+model:
+  n_in: 2
+  n_hid: 2
+
+dataloader:
+  batch_size: 32
+  drop_last: True
+  shuffle: True
+  num_workers: 0
+
+optimizer:
+  lr: 0.001
+  betas: [0.8, 0.99]
+
+lr_scheduler:
+  min_lr: 0.0001
+  warmup_ratio: 0.02
+  decay_ratio: 0.93
+
+trainer:
+  max_epochs: 10
+  accelerator: gpu
+  strategy: ddp_find_unused_parameters_true
+  devices: 1
